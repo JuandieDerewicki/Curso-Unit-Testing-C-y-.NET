@@ -60,5 +60,39 @@ namespace StringManipulationTests
             Assert.DoesNotContain(" ", result);
         }
 
+        [Fact]  
+        public void QuantintyInWords()
+        {
+            // Arrange
+            var strOperations = new StringOperations();
+            // Act
+            var result = strOperations.QuantintyInWords("cat", 10);
+            // Assert
+            Assert.StartsWith("diez", result); 
+            Assert.Contains("cat", result);
+        }
+
+
+        [Fact]
+        public void GetStringLenght_Exception() // Indicamos el exception pq es lo que queremos probar 
+        {
+            // Arrange
+            var strOperations = new StringOperations();
+            // La estructura Act no se utiliza porque no alcanzamos a guardar nada, ya que, llamamos a la funcion y va a saltar una excepion inmediantamente 
+            // Assert
+            Assert.ThrowsAny<ArgumentNullException>(() => strOperations.GetStringLength(null));
+        }
+
+        [Fact]
+        public void TruncateString_Exception()
+        {
+            // Arrange
+            var strOperations = new StringOperations();
+            // La estructura Act no se utiliza porque no alcanzamos a guardar nada, ya que, llamamos a la funcion y va a saltar una excepion inmediantamente 
+            // Assert
+            Assert.ThrowsAny<ArgumentOutOfRangeException>(() => strOperations.TruncateString("Platzi", -2));
+
+        }
+
     }
 }
