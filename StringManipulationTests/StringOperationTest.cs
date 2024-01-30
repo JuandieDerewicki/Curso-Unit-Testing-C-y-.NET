@@ -11,7 +11,7 @@ namespace StringManipulationTests
     public class StringOperationTest
     {
 
-        [Fact]
+        [Fact(Skip = "Esta prueba no es válida en este momento, TICKET-001")] // Ademas debe tener un "ticket" que diga cuando se va a volver a realizar
         public void ConcatenateStrings() // Las clases y metodos de prueba deben ser públicos
         {
             // Arrange
@@ -148,6 +148,8 @@ namespace StringManipulationTests
             // Assert
             Assert.Equal(expected, result);
         }
+
+
 
     } 
 }
