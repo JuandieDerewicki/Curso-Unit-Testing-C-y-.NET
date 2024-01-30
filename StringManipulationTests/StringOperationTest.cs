@@ -24,5 +24,41 @@ namespace StringManipulationTests
             // Se pueden cubrir estas dos comprobaciones ademas de la ultima
             Assert.Equal("Hello Platzi", result); // Comprobamos que la función esté devolviendo bien con Assert nos permite hacer esa comparacion, nos dice cual es el string esperado y cual es el string actual
         }
+
+
+        // Cuando trabajamos con metodos que devuelven T o F, tenemos que trabajar con ambos escenarios en distintos metodos haciendo referencia en los nombres
+        [Fact]
+        public void IsPalindrome_True()
+        {
+            // Arrange
+            var strOperations = new StringOperations();   
+            // Act
+            var result = strOperations.IsPalindrome("ama");
+            // Assert
+            Assert.True(result);   
+        }
+
+        [Fact]
+        public void IsPalindrome_False()
+        {
+            // Arrange
+            var strOperations = new StringOperations();
+            // Act
+            var result = strOperations.IsPalindrome("Hello");
+            // Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void RemoveWhitespace()
+        {
+            // Arrange
+            var strStringManipulation = new StringOperations();
+            // Act
+            var result = strStringManipulation.RemoveWhitespace("Hola, esta es una prueba");
+            // Assert
+            Assert.DoesNotContain(" ", result);
+        }
+
     }
 }
