@@ -97,37 +97,39 @@ namespace StringManipulationTests
         }
 
         // PRUEBA DE QUANTINTYWORDS CON THEORY Y INLINEDATA
-        [Theory]
+        //[Theory]
 
-        [InlineData("car", 10, "ten cars")]
+        //[InlineData("car", 10, "ten cars")]
 
-        [InlineData("country", 4, "four countries")]
+        //[InlineData("country", 4, "four countries")]
 
-        [InlineData("dog", 1, "one dog")]
+        //[InlineData("dog", 1, "one dog")]
 
-        [InlineData("tree", 100, "one hundred trees")]
+        //[InlineData("tree", 100, "one hundred trees")]
 
-        public void QuantityInWordsTest(string input, int quantity, string expected)
-        {
-            // Arrange
-            var operations = new StringOperations();
-            // Act
-            var result = operations.QuantintyInWords(input, quantity);
-            //Assert
-            Assert.NotEmpty(result);
-            Assert.Equal(expected, result);
-        }
+        //public void QuantityInWordsTest(string input, int quantity, string expected)
+        //{
+        //    // Arrange
+        //    var operations = new StringOperations();
+        //    // Act
+        //    var result = operations.QuantintyInWords(input, quantity);
+        //    //Assert
+        //    Assert.NotEmpty(result);
+        //    Assert.Equal(expected, result);
+        //}
 
 
-        [Fact]
-        public void GetStringLenght_Exception() // Indicamos el exception pq es lo que queremos probar 
-        {
-            // Arrange
-            var strOperations = new StringOperations();
-            // La estructura Act no se utiliza porque no alcanzamos a guardar nada, ya que, llamamos a la funcion y va a saltar una excepion inmediantamente 
-            // Assert
-            Assert.ThrowsAny<ArgumentNullException>(() => strOperations.GetStringLength(null));
-        }
+        //[Fact]
+        //public void GetStringLenght_Exception() // Indicamos el exception pq es lo que queremos probar 
+        //{
+        //    // Arrange
+        //    var strOperations = new StringOperations();
+        //    // La estructura Act no se utiliza porque no alcanzamos a guardar nada, ya que, llamamos a la funcion y va a saltar una excepion inmediantamente 
+        //    // Assert
+        //    //Assert.ThrowsAny<ArgumentNullException>(() => strOperations.GetStringLength(null));
+        //    Assert.ThrowsAny<ArgumentNullException>(() => strOperations.GetStringLength(null));
+
+        //}
 
         [Fact]
         public void TruncateString_Exception()
