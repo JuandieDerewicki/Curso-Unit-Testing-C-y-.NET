@@ -165,6 +165,19 @@ namespace StringManipulationTests
             Assert.Equal(3, result);
         }
 
+        // Esta funcion lee un archivo y regresa el texto que tiene, pero para leer ese archivo tiene una interfaz de la que depende y no la recibe desde el construsctor (como normalmente se hace) sino que la recibe como parametro y debemos simular esa interfaz
+        [Fact]
+        public void ReadFile()
+        { 
+            var mockFileReader = new Mock<IFileReaderConector>(); // Tenemos que simular la logica de esta interfaz
+            var strOperations = new StringOperations();
+            mockFileReader.Setup(p => p.ReadString(It.IsAny<string>())).Returns("Reading file"); // Este metodo setup me permite configurar una funcion en particular q tenga el mockfilereader
+            // poniendo esa clase de it.isany estamos haciendo que retorne sea cual esa el archivo, el reading file
+            var result = strOperations.ReadFile(mockFileReader.Object, "file.txt");
+
+            Assert.Equal("Reading file", result);
+        }
+
 
     } 
 }
