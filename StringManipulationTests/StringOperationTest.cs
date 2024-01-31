@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Moq;
+using Castle.Core.Logging;
+using Microsoft.Extensions.Logging;
 
 namespace StringManipulationTests
 {
@@ -149,6 +152,18 @@ namespace StringManipulationTests
             Assert.Equal(expected, result);
         }
 
+        // Nosotros no queremos probar el loguin, solo las ocurrencias
+        [Fact]
+        public void CountOccurrences() // Cuenta cuantas veces encuentra un caracter especifico pero adicional a eso, tambien hace un loguin con un pequeño mensaje 
+        {
+            // Arrange
+            var mockLogger = new Mock<ILogger<StringOperations>>();  // Le pasamos al mock el tipo que queremos que nos simlule que en este caso es ILogger<StringOperatios>
+            var strOperations = new StringOperations(mockLogger.Object); // Hacemos un DEBUG TEST para encontrar el error y marcamos esto como el principio o final. El error nos está dando en logger y nosotros lo que queremos es que cuente las ocurrencias y no esa parte
+            // Act 
+            var result = strOperations.CountOccurrences("Hello platzi", 'l'); // recibe el parametro
+            // Assert
+            Assert.Equal(3, result);
+        }
 
 
     } 
